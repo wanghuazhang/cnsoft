@@ -1,0 +1,1 @@
+D:\my_code\competition\softwarecup_9th\code\test\yolov3_keras/VOCdevkit/VOC2007/JPEGImages/7.jpg 494,320,575,443,0

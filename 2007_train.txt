@@ -1,0 +1,7 @@
+D:\my_code\competition\softwarecup_9th\code\test\yolov3_keras/VOCdevkit/VOC2007/JPEGImages/0.jpg 215,201,320,385,1 524,374,558,457,0
+D:\my_code\competition\softwarecup_9th\code\test\yolov3_keras/VOCdevkit/VOC2007/JPEGImages/1.jpg 506,114,584,226,0
+D:\my_code\competition\softwarecup_9th\code\test\yolov3_keras/VOCdevkit/VOC2007/JPEGImages/2.jpg 204,165,260,238,0 36,234,91,295,0 856,244,869,260,0 949,406,971,434,0 975,376,995,396,0 868,334,895,372,0 395,174,460,249,0 550,199,667,379,0 731,241,772,297,0 3,273,30,312,0
+D:\my_code\competition\softwarecup_9th\code\test\yolov3_keras/VOCdevkit/VOC2007/JPEGImages/3.jpg 422,241,544,384,0
+D:\my_code\competition\softwarecup_9th\code\test\yolov3_keras/VOCdevkit/VOC2007/JPEGImages/4.jpg 36,22,90,93,0
+D:\my_code\competition\softwarecup_9th\code\test\yolov3_keras/VOCdevkit/VOC2007/JPEGImages/5.jpg 712,111,799,195,0 641,180,669,213,0 419,280,472,338,0 116,320,188,411,0
+D:\my_code\competition\softwarecup_9th\code\test\yolov3_keras/VOCdevkit/VOC2007/JPEGImages/6.jpg 240,71,293,146,1 131,52,196,144,1 1,39,14,118,0
