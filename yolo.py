@@ -351,18 +351,6 @@ def detect_video(yolo, video_path, output_path=""):
     yolo.close_session()
 
 
-
-#计算车距
-def calculate_position(bbox, transform_matrix, warped_size, pix_per_meter):
-    if len(bbox) == 0:
-        print('Nothing')
-    else:
-        pos = np.array((bbox[1] / 2 + bbox[3] / 2, bbox[2])).reshape(1, 1, -1)
-        dst = cv2.perspectiveTransform(pos, transform_matrix).reshape(-1, 1)
-        return np.array((warped_size[1] - dst[1]) / pix_per_meter[1])
-
-
-
 def area(bbox):
     return float((bbox[3] - bbox[1]) * (bbox[2] - bbox[0]))
 

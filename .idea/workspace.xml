@@ -212,7 +212,7 @@
       <workItem from="1588849855797" duration="3699000" />
       <workItem from="1589190736338" duration="3084000" />
       <workItem from="1589768686704" duration="1148000" />
-      <workItem from="1589776705183" duration="14819000" />
+      <workItem from="1589776705183" duration="15142000" />
     </task>
     <task id="LOCAL-00001" summary="添加车道线检测之前">
       <created>1588775120029</created>
@@ -228,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589802721458</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="添加deepsort，实现基本的检测和跟踪&#10;Todo：在track里面跟踪记录对应的class和score">
+      <created>1589802994515</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1589802994515</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
