@@ -2,7 +2,7 @@
 *.png
 *.weights
 *.h5
-logs/
+yolov3_deepsort/logs/
 *_test.py
 
 # Byte-compiled / optimized / DLL files

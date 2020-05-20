@@ -1,7 +1,5 @@
-import sys
 import argparse
-import yolo
-from yolo import *
+from yolov3_deepsort.yolo import *
 from PIL import Image
 
 def detect_img(yolo):

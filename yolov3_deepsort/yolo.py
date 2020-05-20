@@ -5,7 +5,6 @@ Class definition of YOLO_v3 style detection model on image and video
 
 import colorsys
 import math
-import os
 import time
 from timeit import default_timer as timer
 
@@ -16,12 +15,12 @@ from keras.models import load_model
 from keras.layers import Input
 from PIL import Image, ImageFont, ImageDraw
 
-from deep_sort import nn_matching, preprocessing
-from deep_sort.detection import Detection
-from deep_sort.tracker import Tracker
-from tools import generate_detections as gdet
-from yolo3.model import yolo_eval, yolo_body, tiny_yolo_body
-from yolo3.utils import letterbox_image
+from yolov3_deepsort.deep_sort import nn_matching, preprocessing
+from yolov3_deepsort.deep_sort.detection import Detection
+from yolov3_deepsort.deep_sort.tracker import Tracker
+from yolov3_deepsort.tools import generate_detections as gdet
+from yolov3_deepsort.yolo3.model import yolo_eval, yolo_body, tiny_yolo_body
+from yolov3_deepsort.yolo3 import letterbox_image
 import os
 from keras.utils import multi_gpu_model
 
