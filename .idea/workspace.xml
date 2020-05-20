@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6412932-dcf2-4942-b57c-685ea215bc7c" name="Default Changelist" comment="" />
+    <list default="true" id="d6412932-dcf2-4942-b57c-685ea215bc7c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deep_sort/detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/deep_sort/detection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deep_sort/track.py" beforeDir="false" afterPath="$PROJECT_DIR$/deep_sort/track.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deep_sort/tracker.py" beforeDir="false" afterPath="$PROJECT_DIR$/deep_sort/tracker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yolo.py" beforeDir="false" afterPath="$PROJECT_DIR$/yolo.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +218,8 @@
       <workItem from="1588849855797" duration="3699000" />
       <workItem from="1589190736338" duration="3084000" />
       <workItem from="1589768686704" duration="1148000" />
-      <workItem from="1589776705183" duration="15142000" />
+      <workItem from="1589776705183" duration="18011000" />
+      <workItem from="1589959594196" duration="3961000" />
     </task>
     <task id="LOCAL-00001" summary="添加车道线检测之前">
       <created>1588775120029</created>
@@ -235,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589802994515</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="添加deepsort，实现基本的检测和跟踪&#10;Todo：在track里面跟踪记录对应的class和score">
+      <created>1589803267787</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1589803267787</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,19 +302,24 @@
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tools/generate_detections.py</url>
-          <line>104</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/yolo.py</url>
-          <line>280</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/yolo.py</url>
-          <line>296</line>
+          <line>302</line>
           <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/yolo.py</url>
+          <line>289</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/yolo.py</url>
+          <line>231</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/deep_sort/tracker.py</url>
+          <line>71</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -314,6 +333,6 @@
     <SUITE FILE_PATH="coverage/keras_yolo3_master$voc_annotation.coverage" NAME="voc_annotation Coverage Results" MODIFIED="1581579884574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/yolov3_keras$voc2yolo3.coverage" NAME="voc2yolo3 Coverage Results" MODIFIED="1587572590772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VOCdevkit/VOC2007" />
     <SUITE FILE_PATH="coverage/yolov3_keras$kmeans.coverage" NAME="kmeans Coverage Results" MODIFIED="1587573429829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/yolov3_keras$yolo_video.coverage" NAME="yolo_video Coverage Results" MODIFIED="1589802620414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yolov3_keras$yolo_video.coverage" NAME="yolo_video Coverage Results" MODIFIED="1589968458571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -201,6 +201,12 @@ class YOLO(object):
                 self.input_image_shape: [image.size[1], image.size[0]],
                 K.learning_phase(): 0
             })
+
+        print('Found {} boxes for {}'.format(len(out_boxes), 'img'))
+        font = ImageFont.truetype(font='font/FiraMono-Medium.otf',
+                                  size=np.floor(3e-2 * image.size[1] + 0.5).astype('int32'))
+        thickness = (image.size[0] + image.size[1]) // 300
+
         return_boxs = []
         labels = []
         for i, c in reversed(list(enumerate(out_classes))):
@@ -246,9 +252,9 @@ def detect_video(yolo, video_path, output_path=""):
         vid = cv2.VideoCapture(0)
     if not vid.isOpened():
         raise IOError("Couldn't open webcam or video")
-    video_FourCC    = int(vid.get(cv2.CAP_PROP_FOURCC))
-    video_fps       = vid.get(cv2.CAP_PROP_FPS)
-    video_size      = (int(vid.get(cv2.CAP_PROP_FRAME_WIDTH)),
+    video_FourCC = int(vid.get(cv2.CAP_PROP_FOURCC))
+    video_fps = vid.get(cv2.CAP_PROP_FPS)
+    video_size = (int(vid.get(cv2.CAP_PROP_FRAME_WIDTH)),
                         int(vid.get(cv2.CAP_PROP_FRAME_HEIGHT)))
     isOutput = True if output_path != "" else False
     if isOutput:
@@ -281,7 +287,7 @@ def detect_video(yolo, video_path, output_path=""):
         boxs, labels = yolo.detect_image_deepsort(image)
         features = encoder(frame, boxs)
         # score to 1.0 here).
-        detections = [Detection(bbox, 1.0, feature) for bbox, feature in zip(boxs, features)]
+        detections = [Detection(bbox, 1.0, feature, lable) for bbox, feature, lable in zip(boxs, features, labels)]
 
         # Run non-maxima suppression.
         boxes = np.array([d.tlwh for d in detections])
@@ -299,7 +305,7 @@ def detect_video(yolo, video_path, output_path=""):
                 continue
             bbox = track.to_tlbr()
             cv2.rectangle(frame, (int(bbox[0]), int(bbox[1])), (int(bbox[2]), int(bbox[3])), (255, 255, 255), 2)
-            cv2.putText(frame, str(track.track_id), (int(bbox[0]), int(bbox[1])), 0, 5e-3 * 200, (0, 255, 0), 2)
+            cv2.putText(frame, str(track.track_id) + ": " + track.lable, (int(bbox[0]), int(bbox[1])), 0, 5e-3 * 200, (0, 255, 0), 2)
 
         # cnt = 0
         # for det in detections:
