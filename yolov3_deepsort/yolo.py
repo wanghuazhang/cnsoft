@@ -20,7 +20,7 @@ from yolov3_deepsort.deep_sort.detection import Detection
 from yolov3_deepsort.deep_sort.tracker import Tracker
 from yolov3_deepsort.tools import generate_detections as gdet
 from yolov3_deepsort.yolo3.model import yolo_eval, yolo_body, tiny_yolo_body
-from yolov3_deepsort.yolo3 import letterbox_image
+from yolov3_deepsort.yolo3.utils import letterbox_image
 import os
 from keras.utils import multi_gpu_model
 
@@ -29,9 +29,9 @@ import matplotlib.image as mpimg
 
 class YOLO(object):
     _defaults = {
-        "model_path": 'model_data/yolov3-tiny.h5',
-        "anchors_path": 'model_data/tiny_yolo_anchors.txt',
-        "classes_path": 'model_data/coco_classes.txt',
+        "model_path": 'yolov3_deepsort/model_data/yolov3-tiny.h5',
+        "anchors_path": 'yolov3_deepsort/model_data/tiny_yolo_anchors.txt',
+        "classes_path": 'yolov3_deepsort/model_data/coco_classes.txt',
         "score" : 0.3,
         "iou" : 0.45,
         "model_image_size" : (416, 416),
@@ -202,7 +202,7 @@ class YOLO(object):
             })
 
         print('Found {} boxes for {}'.format(len(out_boxes), 'img'))
-        font = ImageFont.truetype(font='font/FiraMono-Medium.otf',
+        font = ImageFont.truetype(font='yolov3_deepsort/font/FiraMono-Medium.otf',
                                   size=np.floor(3e-2 * image.size[1] + 0.5).astype('int32'))
         thickness = (image.size[0] + image.size[1]) // 300
 
@@ -239,7 +239,7 @@ def detect_video(yolo, video_path, output_path=""):
     nn_budget = None
     nms_max_overlap = 1.0
     # deep_sort
-    model_filename = 'model_data/mars-small128.pb'
+    model_filename = 'yolov3_deepsort/model_data/mars-small128.pb'
     encoder = gdet.create_box_encoder(model_filename, batch_size=1)
     metric = nn_matching.NearestNeighborDistanceMetric("cosine", max_cosine_distance, nn_budget)
     tracker = Tracker(metric)
@@ -304,7 +304,7 @@ def detect_video(yolo, video_path, output_path=""):
                 continue
             bbox = track.to_tlbr()
             cv2.rectangle(frame, (int(bbox[0]), int(bbox[1])), (int(bbox[2]), int(bbox[3])), (255, 255, 255), 2)
-            cv2.putText(frame, str(track.track_id) + ": " + track.lable, (int(bbox[0]), int(bbox[1])), 0, 5e-3 * 200, (0, 255, 0), 2)
+            cv2.putText(frame, str(track.track_id) + ": " + track.label, (int(bbox[0]), int(bbox[1])), 0, 5e-3 * 200, (0, 255, 0), 2)
 
         # cnt = 0
         # for det in detections:
