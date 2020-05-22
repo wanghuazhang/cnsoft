@@ -227,18 +227,23 @@ class YOLO(object):
                 h = h + y
                 y = 0
             #添加车牌检测内容
-            myclass = ['car', 'bus', 'truck']
-            if predicted_class in myclass:
-                imgPlate = image.crop((x, y, x + w, y + h))
-                imgNp = np.asarray(imgPlate)
-                carPlate = recognize_plate(imgNp)
-                print(carPlate)
-                if carPlate:
-                    pstr = carPlate[0][0]
-                    confidence = str(round(carPlate[0][1],3))
-                    label += '/n' + pstr + ': ' + confidence
+            myclass = ['car', 'bus']
+
+            #对车牌检测部分进行优化，添加检测条件：1/4 < x < 3/4 and 1/2 < y < 4/5
+            if image.size[0] * 1 / 3 < x < image.size[0] * 2 / 3 and image.size[1] * 3 / 5 < y < image.size[1] * 4 / 5:
+                if w > 120 and h > 120:
+                    if predicted_class in myclass:
+                        imgPlate = image.crop((x, y, x + w, y + h))
+                        imgNp = np.asarray(imgPlate)
+                        carPlate = recognize_plate(imgNp)
+                        print(carPlate)
+                        if carPlate:
+                            pstr = carPlate[0][0]
+                            confidence = str(round(carPlate[0][1],3))
+                            label += '/n' + pstr + ': ' + confidence
 
             return_boxs.append([x, y, w, h])
+            print(predicted_class, str([x, y, w, h]))
             labels.append(label)
 
         return return_boxs, labels
@@ -261,6 +266,7 @@ def detect_video(yolo, video_path, output_path=""):
     if video_path:
         vid = cv2.VideoCapture(video_path)
         file_name = (video_path.split('/')[-1]).split('.')[0]
+        suffix = (video_path.split('/')[-1]).split('.')[1]
     else:
         vid = cv2.VideoCapture(0)
     if not vid.isOpened():
@@ -273,11 +279,9 @@ def detect_video(yolo, video_path, output_path=""):
     if isOutput:
         #注意保存视频文件时需要下载对应的编码库，如64位的Python，Windows，就下载openh264-1.7.0-win64.dll.bz2
         #下载完之后，解压到对应解释器所在目录，链接：https://github.com/cisco/openh264/releases
-
-
         print("!!! TYPE:", type(output_path), type(video_FourCC), type(video_fps), type(video_size))
         print(output_path)
-        output_file = output_path+ '/output_' + file_name + '.mp4'
+        output_file = output_path+ '/output_' + file_name + '.' + suffix
         print(output_file)
         out = cv2.VideoWriter(output_file, video_FourCC, video_fps, video_size)
         list_file = open(output_path + '/detection_' +  file_name + '.txt', 'w')

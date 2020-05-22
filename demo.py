@@ -8,7 +8,7 @@ from yolov3_deepsort.yolo_video import detectAPI
 
 if __name__ == '__main__':
     #API demo
-    input_path = 'yolov3_deepsort/img/video-02.mp4'
+    input_path = 'yolov3_deepsort/img/video-01.avi'
     output_path = 'yolov3_deepsort/output'
     detectAPI(input_path, output_path)
 
