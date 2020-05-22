@@ -4,12 +4,13 @@
 *.h5
 yolov3_deepsort/logs/
 *_test.py
+yolov3_deepsort/output/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-*.idea
+.idea
 # C extensions
 *.so
 

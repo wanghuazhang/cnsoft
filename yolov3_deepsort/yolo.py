@@ -247,6 +247,7 @@ def detect_video(yolo, video_path, output_path=""):
 
     if video_path:
         vid = cv2.VideoCapture(video_path)
+        file_name = (video_path.split('/')[-1]).split('.')[0]
     else:
         vid = cv2.VideoCapture(0)
     if not vid.isOpened():
@@ -257,12 +258,16 @@ def detect_video(yolo, video_path, output_path=""):
                         int(vid.get(cv2.CAP_PROP_FRAME_HEIGHT)))
     isOutput = True if output_path != "" else False
     if isOutput:
+        #注意保存视频文件时需要下载对应的编码库，如64位的Python，Windows，就下载openh264-1.7.0-win64.dll.bz2
+        #下载完之后，解压到对应解释器所在目录，链接：https://github.com/cisco/openh264/releases
+
+
         print("!!! TYPE:", type(output_path), type(video_FourCC), type(video_fps), type(video_size))
         print(output_path)
-        output_file = os.path.join(output_path, 'output.avi')
+        output_file = output_path+ '/output_' + file_name + '.mp4'
         print(output_file)
         out = cv2.VideoWriter(output_file, video_FourCC, video_fps, video_size)
-        list_file = open(output_path + '/detection.txt', 'w')
+        list_file = open(output_path + '/detection_' +  file_name + '.txt', 'w')
         frame_index = -1
 
     accum_time = 0
@@ -273,7 +278,7 @@ def detect_video(yolo, video_path, output_path=""):
         ret, frame = vid.read()
         if ret != True:
             break
-        curr_time = time.time()
+        curr_time = timer()
         exec_time = curr_time - prev_time
         prev_time = curr_time
         accum_time = accum_time + exec_time

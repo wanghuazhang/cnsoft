@@ -18,7 +18,7 @@ def detect_img(yolo):
 FLAGS = None
 
 
-def detectAPI(video_path):
+def detectAPI(input_path, output_path=''):
     # class YOLO defines the default value, so suppress any default here
     parser = argparse.ArgumentParser(argument_default=argparse.SUPPRESS)
     '''
@@ -65,7 +65,8 @@ def detectAPI(video_path):
     )
 
     FLAGS = parser.parse_args()
-    FLAGS.input = video_path
+    FLAGS.input = input_path
+    FLAGS.output = output_path
 
     if FLAGS.image:
         """

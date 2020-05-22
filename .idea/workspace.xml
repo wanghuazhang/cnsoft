@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6412932-dcf2-4942-b57c-685ea215bc7c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/yolov3_deepsort/openh264-1.7.0-win64.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yolov3_deepsort/output/detection_video-02.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yolov3_deepsort/output/output_video-02.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yolov3_deepsort/output/detection.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yolov3_deepsort/output/output.avi" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/yolov3_deepsort/yolo.py" beforeDir="false" afterPath="$PROJECT_DIR$/yolov3_deepsort/yolo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yolov3_deepsort/yolo_video.py" beforeDir="false" afterPath="$PROJECT_DIR$/yolov3_deepsort/yolo_video.py" afterDir="false" />
     </list>
@@ -224,7 +230,7 @@
       <workItem from="1589959594196" duration="9021000" />
       <workItem from="1590050029972" duration="115000" />
       <workItem from="1590053201490" duration="1707000" />
-      <workItem from="1590112714114" duration="1672000" />
+      <workItem from="1590112714114" duration="5152000" />
     </task>
     <task id="LOCAL-00001" summary="添加车道线检测之前">
       <created>1588775120029</created>
@@ -275,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589970936126</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="提供一个目标检测和跟踪的API：detectAPI(video_path)，传入视频路径参数">
+      <created>1590114540380</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1590114540380</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,7 +312,8 @@
     <MESSAGE value="添加deepsort，实现基本的检测和跟踪&#10;Todo：在track里面跟踪记录对应的class和score" />
     <MESSAGE value="为track添加lable属性，记录对应的class、score内容，完成track跟踪记录目标的信息" />
     <MESSAGE value="修改了文件树" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了文件树" />
+    <MESSAGE value="提供一个目标检测和跟踪的API：detectAPI(video_path)，传入视频路径参数" />
+    <option name="LAST_COMMIT_MESSAGE" value="提供一个目标检测和跟踪的API：detectAPI(video_path)，传入视频路径参数" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -326,17 +340,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/yolov3_deepsort/yolo_video.py</url>
-          <line>78</line>
+          <line>79</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/yolov3_deepsort/yolo.py</url>
-          <line>302</line>
+          <line>307</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/yolov3_deepsort/yolo.py</url>
-          <line>289</line>
+          <line>294</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -364,6 +378,6 @@
     <SUITE FILE_PATH="coverage/yolov3_keras$voc2yolo3.coverage" NAME="voc2yolo3 Coverage Results" MODIFIED="1587572590772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VOCdevkit/VOC2007" />
     <SUITE FILE_PATH="coverage/yolov3_keras$kmeans.coverage" NAME="kmeans Coverage Results" MODIFIED="1587573429829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/yolov3_keras$yolo_video.coverage" NAME="yolo_video Coverage Results" MODIFIED="1590112798469" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/yolov3_keras$demo.coverage" NAME="demo Coverage Results" MODIFIED="1590114439560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yolov3_keras$demo.coverage" NAME="demo Coverage Results" MODIFIED="1590117886053" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
