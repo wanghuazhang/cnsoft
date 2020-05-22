@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6412932-dcf2-4942-b57c-685ea215bc7c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/yolov3_deepsort/openh264-1.7.0-win64.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yolov3_deepsort/output/detection_video-02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yolov3_deepsort/output/output_video-02.mp4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="d6412932-dcf2-4942-b57c-685ea215bc7c" name="Default Changelist" comment="" />
+    <list id="ca3c1a6c-ff3f-4a4e-8566-dba6fae365aa" name="Revert &quot;提供一个目标检测和跟踪的API：detectAPI(video_path)，传入视频路径参数 同时，output/ 提供了目前检测的demo，txt文件是对应检测的box，mp4是检测视频&quot;" comment="Revert &quot;提供一个目标检测和跟踪的API：detectAPI(video_path)，传入视频路径参数 同时，output/ 提供了目前检测的demo，txt文件是对应检测的box，mp4是检测视频&quot;&#10;&#10;This reverts commit 3f9f24a6" />
+    <list id="3fd90dcb-d5d5-4aed-85d7-a722d2ff9212" name="提供一个目标检测和跟踪的API：detectAPI(video_path)，传入视频路径参数 同时，output/ 提供了目前检测的demo，txt文件是对应检测的box，mp4是检测视频" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yolov3_deepsort/output/detection.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yolov3_deepsort/output/output.avi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yolov3_deepsort/yolo.py" beforeDir="false" afterPath="$PROJECT_DIR$/yolov3_deepsort/yolo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yolov3_deepsort/yolo_video.py" beforeDir="false" afterPath="$PROJECT_DIR$/yolov3_deepsort/yolo_video.py" afterDir="false" />
     </list>
+    <list id="63046dd7-d62e-4067-85fa-aa447c4e7540" name="提供目标检测与跟踪效果demo，output文件夹下，txt文件是对应检测的box，mp4是检测视频" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590114540380</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="提供目标检测与跟踪效果demo，output文件夹下，txt文件是对应检测的box，mp4是检测视频&#10;&#10;This reverts commit 3f9f24a6">
+      <created>1590118325113</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1590118325113</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +313,8 @@
     <MESSAGE value="为track添加lable属性，记录对应的class、score内容，完成track跟踪记录目标的信息" />
     <MESSAGE value="修改了文件树" />
     <MESSAGE value="提供一个目标检测和跟踪的API：detectAPI(video_path)，传入视频路径参数" />
-    <option name="LAST_COMMIT_MESSAGE" value="提供一个目标检测和跟踪的API：detectAPI(video_path)，传入视频路径参数" />
+    <MESSAGE value="提供目标检测与跟踪效果demo，output文件夹下，txt文件是对应检测的box，mp4是检测视频&#10;&#10;This reverts commit 3f9f24a6" />
+    <option name="LAST_COMMIT_MESSAGE" value="提供目标检测与跟踪效果demo，output文件夹下，txt文件是对应检测的box，mp4是检测视频&#10;&#10;This reverts commit 3f9f24a6" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
