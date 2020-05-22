@@ -15,6 +15,7 @@ from keras.models import load_model
 from keras.layers import Input
 from PIL import Image, ImageFont, ImageDraw
 
+from PlateRecognition.plateRecognition import *
 from yolov3_deepsort.deep_sort import nn_matching, preprocessing
 from yolov3_deepsort.deep_sort.detection import Detection
 from yolov3_deepsort.deep_sort.tracker import Tracker
@@ -225,6 +226,18 @@ class YOLO(object):
             if y < 0:
                 h = h + y
                 y = 0
+            #添加车牌检测内容
+            myclass = ['car', 'bus', 'truck']
+            if predicted_class in myclass:
+                imgPlate = image.crop((x, y, x + w, y + h))
+                imgNp = np.asarray(imgPlate)
+                carPlate = recognize_plate(imgNp)
+                print(carPlate)
+                if carPlate:
+                    pstr = carPlate[0][0]
+                    confidence = str(round(carPlate[0][1],3))
+                    label += '/n' + pstr + ': ' + confidence
+
             return_boxs.append([x, y, w, h])
             labels.append(label)
 
@@ -319,7 +332,8 @@ def detect_video(yolo, video_path, output_path=""):
         #     cv2.rectangle(frame, (int(bbox[0]), int(bbox[1])), (int(bbox[2]), int(bbox[3])), (255, 0, 0), 4)
         #     # cv2.putText(frame, context, (int(bbox[0]), int(bbox[1])), 0, 5e-3 * 200, (0, 255, 0), 2)
 
-        cv2.imshow('result', frame)
+        #暂时采取只将文件保存到本地的方法，不实时的show出来
+        # cv2.imshow('result', frame)
 
         if isOutput:
         #Todo 写文件时还有一些bug，主要是h264不兼容问题
