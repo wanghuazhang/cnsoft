@@ -281,7 +281,8 @@ def detect_video(yolo, video_path, output_path=""):
         if accum_time > 1:
             accum_time = accum_time - 1
             fps = "FPS: " + str(curr_fps)
-            print(fps)
+            curr_fps = 0
+        print(fps)
         image = Image.fromarray(frame[..., ::-1])  # bgr to rgb
         boxs, labels = yolo.detect_image_deepsort(image)
         features = encoder(frame, boxs)

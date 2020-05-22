@@ -1,10 +1,17 @@
 
 import sys
-import DisplayUI
 from PyQt5.QtWidgets import QApplication, QMainWindow
-from VideoDisplay import Display
+
+from GUI import DisplayUI
+from GUI.VideoDisplay import Display
+from yolov3_deepsort.yolo_video import detectAPI
 
 if __name__ == '__main__':
+    #API demo
+    video_path = 'yolov3_deepsort/img/video-02.mp4'
+    detectAPI(video_path)
+
+
     app = QApplication(sys.argv)
     mainWnd = QMainWindow()
     ui = DisplayUI.Ui_MainWindow()

@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6412932-dcf2-4942-b57c-685ea215bc7c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yolov3_deepsort/deep_sort/detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/yolov3_deepsort/deep_sort/detection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yolov3_deepsort/deep_sort/track.py" beforeDir="false" afterPath="$PROJECT_DIR$/yolov3_deepsort/deep_sort/track.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yolov3_deepsort/deep_sort/tracker.py" beforeDir="false" afterPath="$PROJECT_DIR$/yolov3_deepsort/deep_sort/tracker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yolov3_deepsort/yolo.py" beforeDir="false" afterPath="$PROJECT_DIR$/yolov3_deepsort/yolo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yolov3_deepsort/yolo3/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/yolov3_deepsort/yolo3/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yolov3_deepsort/yolo_video.py" beforeDir="false" afterPath="$PROJECT_DIR$/yolov3_deepsort/yolo_video.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +23,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1aty1fHvc0veqFxosCpXjUNXFG8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -47,16 +47,17 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\my_code\competition\softwarecup_9th\code\test\yolov3_keras\yolov3_deepsort" />
-      <recent name="D:\my_code\competition\softwarecup_9th\code\test\yolov3_keras\VOCdevkit\VOC2007\Annotations" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\my_code\competition\softwarecup_9th\code\test\yolov3_keras\model_data" />
       <recent name="D:\my_code\competition\softwarecup_9th\code\test\yolov3_keras" />
       <recent name="D:\0dl_project\keras-yolo3-master\keras-yolo3-master\img" />
       <recent name="D:\0dl_project\keras-yolo3-master\keras-yolo3-master" />
       <recent name="D:\0dl_project\keras-yolo3-master\keras-yolo3-master\VOCdevkit\VOC2007" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\my_code\competition\softwarecup_9th\code\test\yolov3_keras" />
+      <recent name="D:\my_code\competition\softwarecup_9th\code\test\yolov3_keras\yolov3_deepsort" />
+      <recent name="D:\my_code\competition\softwarecup_9th\code\test\yolov3_keras\VOCdevkit\VOC2007\Annotations" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -71,8 +72,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.yolo_video">
-    <configuration name="kmeans" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.demo">
+    <configuration name="demo" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="keras-yolo3-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -85,7 +86,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="D:\my_code\competition\softwarecup_9th\code\test\yolov3_keras\yolov3_deepsort\kmeans.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -116,28 +117,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="voc_annotation" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="keras-yolo3-master" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="D:\my_code\competition\softwarecup_9th\code\test\yolov3_keras\yolov3_deepsort\voc_annotation.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="yolo" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="keras-yolo3-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -152,6 +131,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="D:\my_code\competition\softwarecup_9th\code\test\yolov3_keras\yolov3_deepsort\yolo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="yolo_video (1)" type="PythonConfigurationType" factoryName="Python">
+      <module name="keras-yolo3-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yolov3_deepsort/yolo_video.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -183,19 +184,18 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.kmeans" />
+      <item itemvalue="Python.yolo_video (1)" />
       <item itemvalue="Python.train" />
-      <item itemvalue="Python.voc_annotation" />
       <item itemvalue="Python.yolo_video" />
       <item itemvalue="Python.yolo" />
+      <item itemvalue="Python.demo" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.demo" />
         <item itemvalue="Python.yolo_video" />
         <item itemvalue="Python.yolo" />
         <item itemvalue="Python.train" />
-        <item itemvalue="Python.voc_annotation" />
-        <item itemvalue="Python.kmeans" />
       </list>
     </recent_temporary>
   </component>
@@ -221,7 +221,10 @@
       <workItem from="1589190736338" duration="3084000" />
       <workItem from="1589768686704" duration="1148000" />
       <workItem from="1589776705183" duration="18011000" />
-      <workItem from="1589959594196" duration="6201000" />
+      <workItem from="1589959594196" duration="9021000" />
+      <workItem from="1590050029972" duration="115000" />
+      <workItem from="1590053201490" duration="1707000" />
+      <workItem from="1590112714114" duration="1672000" />
     </task>
     <task id="LOCAL-00001" summary="添加车道线检测之前">
       <created>1588775120029</created>
@@ -265,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589970035079</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="修改了文件树">
+      <created>1589970936125</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1589970936126</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,7 +326,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/yolov3_deepsort/yolo_video.py</url>
-          <line>76</line>
+          <line>78</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -344,6 +354,8 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/yolov3_keras$yolo.coverage" NAME="yolo Coverage Results" MODIFIED="1589789748624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yolov3_keras$demo__1_.coverage" NAME="demo (1) Coverage Results" MODIFIED="1590069488253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yolov3_keras$yolo_video__1_.coverage" NAME="yolo_video (1) Coverage Results" MODIFIED="1590114377720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/yolov3_keras$voc_annotation.coverage" NAME="voc_annotation Coverage Results" MODIFIED="1587574097537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/keras_yolo3_master$train.coverage" NAME="train Coverage Results" MODIFIED="1581580904423" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/keras_yolo3_master$kmeans.coverage" NAME="kmeans Coverage Results" MODIFIED="1581840837719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -351,6 +363,7 @@
     <SUITE FILE_PATH="coverage/keras_yolo3_master$voc_annotation.coverage" NAME="voc_annotation Coverage Results" MODIFIED="1581579884574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/yolov3_keras$voc2yolo3.coverage" NAME="voc2yolo3 Coverage Results" MODIFIED="1587572590772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VOCdevkit/VOC2007" />
     <SUITE FILE_PATH="coverage/yolov3_keras$kmeans.coverage" NAME="kmeans Coverage Results" MODIFIED="1587573429829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/yolov3_keras$yolo_video.coverage" NAME="yolo_video Coverage Results" MODIFIED="1589970894896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yolov3_keras$yolo_video.coverage" NAME="yolo_video Coverage Results" MODIFIED="1590112798469" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yolov3_keras$demo.coverage" NAME="demo Coverage Results" MODIFIED="1590114439560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

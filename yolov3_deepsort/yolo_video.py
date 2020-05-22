@@ -17,7 +17,8 @@ def detect_img(yolo):
 
 FLAGS = None
 
-if __name__ == '__main__':
+
+def detectAPI(video_path):
     # class YOLO defines the default value, so suppress any default here
     parser = argparse.ArgumentParser(argument_default=argparse.SUPPRESS)
     '''
@@ -64,6 +65,7 @@ if __name__ == '__main__':
     )
 
     FLAGS = parser.parse_args()
+    FLAGS.input = video_path
 
     if FLAGS.image:
         """
@@ -77,3 +79,7 @@ if __name__ == '__main__':
         detect_video(YOLO(**vars(FLAGS)), FLAGS.input, FLAGS.output)
     else:
         print("Must specify at least video_input_path.  See usage with --help.")
+
+if __name__ == '__main__':
+    video_path = 'yolov3_deepsort/img/video-02.mp4'
+    detectAPI(video_path)
