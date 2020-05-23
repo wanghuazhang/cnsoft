@@ -3,7 +3,7 @@ import threading
 from PyQt5.QtCore import QFile
 from PyQt5.QtWidgets import QFileDialog, QMessageBox
 from PyQt5.QtGui import QImage, QPixmap
-
+from yolov3_deepsort.yolo_video import detectAPI
 
 class Display:
     def __init__(self, ui, mainWnd):
@@ -38,6 +38,11 @@ class Display:
         #这里需要改为调用深度学习框架
         if not self.isCamera:
             self.fileName, self.fileType = QFileDialog.getOpenFileName(self.mainWnd, 'Choose file', '', '*.*')
+
+            input_path = 'yolov3_deepsort/img/video-02.mp4'
+            output_path = 'yolov3_deepsort/output'
+            detectAPI(input_path, output_path)
+            self.fileName='yolov3_deepsort/output/output_video-02.mp4'
             self.cap = cv2.VideoCapture(self.fileName)
             self.frameRate = self.cap.get(cv2.CAP_PROP_FPS)
         else:
