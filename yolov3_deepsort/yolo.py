@@ -30,8 +30,8 @@ import matplotlib.image as mpimg
 
 class YOLO(object):
     _defaults = {
-        "model_path": 'yolov3_deepsort/model_data/yolov3-tiny.h5',
-        "anchors_path": 'yolov3_deepsort/model_data/tiny_yolo_anchors.txt',
+        "model_path": 'yolov3_deepsort/model_data/yolo.h5',
+        "anchors_path": 'yolov3_deepsort/model_data/yolo_anchors.txt',
         "classes_path": 'yolov3_deepsort/model_data/coco_classes.txt',
         "score" : 0.3,
         "iou" : 0.45,
@@ -209,10 +209,12 @@ class YOLO(object):
 
         return_boxs = []
         labels = []
+        detect_class = ['car', 'bus', 'person', 'motorbike', 'truck']
         for i, c in reversed(list(enumerate(out_classes))):
             predicted_class = self.class_names[c]
-            # if predicted_class != 'person':
-            #     continue
+            #对检查目标先过滤一遍
+            if predicted_class not in detect_class:
+                continue
             box = out_boxes[i]
             score = out_scores[i]
             label = '{} {:.2f}'.format(predicted_class, score)
@@ -230,20 +232,20 @@ class YOLO(object):
             myclass = ['car', 'bus']
 
             #对车牌检测部分进行优化，添加检测条件：1/4 < x < 3/4 and 1/2 < y < 4/5
-            if image.size[0] * 1 / 3 < x < image.size[0] * 2 / 3 and image.size[1] * 3 / 5 < y < image.size[1] * 4 / 5:
-                if w > 120 and h > 120:
-                    if predicted_class in myclass:
-                        imgPlate = image.crop((x, y, x + w, y + h))
-                        imgNp = np.asarray(imgPlate)
-                        carPlate = recognize_plate(imgNp)
-                        print(carPlate)
-                        if carPlate:
-                            pstr = carPlate[0][0]
-                            confidence = str(round(carPlate[0][1],3))
-                            label += '/n' + pstr + ': ' + confidence
+            # if image.size[0] * 1 / 3 < x < image.size[0] * 2 / 3 and image.size[1] * 3 / 5 < y < image.size[1] * 4 / 5:
+            #     if w > 120 and h > 120:
+            #         if predicted_class in myclass:
+            #             imgPlate = image.crop((x, y, x + w, y + h))
+            #             imgNp = np.asarray(imgPlate)
+            #             carPlate = recognize_plate(imgNp)
+            #             print(carPlate)
+            #             if carPlate:
+            #                 pstr = carPlate[0][0]
+            #                 confidence = str(round(carPlate[0][1],3))
+            #                 label += '/n' + pstr + ': ' + confidence
 
             return_boxs.append([x, y, w, h])
-            print(predicted_class, str([x, y, w, h]))
+            # print(predicted_class, str([x, y, w, h]))
             labels.append(label)
 
         return return_boxs, labels
@@ -253,9 +255,9 @@ class YOLO(object):
 
 def detect_video(yolo, video_path, output_path=""):
     # Definition of the parameters
-    max_cosine_distance = 0.3
+    max_cosine_distance = 0.5 #0.3
     nn_budget = None
-    nms_max_overlap = 1.0
+    nms_max_overlap = 1.0 #1.0
     # deep_sort
     model_filename = 'yolov3_deepsort/model_data/mars-small128.pb'
     encoder = gdet.create_box_encoder(model_filename, batch_size=1)

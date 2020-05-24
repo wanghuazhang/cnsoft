@@ -41,7 +41,7 @@ class Display:
 
             input_path = 'yolov3_deepsort/img/video-02.mp4'
             output_path = 'yolov3_deepsort/output'
-            detectAPI(input_path, output_path)
+            # detectAPI(input_path, output_path)
             self.fileName='yolov3_deepsort/output/output_video-02.mp4'
             self.cap = cv2.VideoCapture(self.fileName)
             self.frameRate = self.cap.get(cv2.CAP_PROP_FPS)
@@ -69,11 +69,14 @@ class Display:
                 self.ui.DisplayLabel.clear()
                 self.ui.Close.setEnabled(False)
                 self.ui.Open.setEnabled(True)
-            frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+            if success is True:
+                frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+            else:
+                break
+
             img = QImage(frame.data, frame.shape[1], frame.shape[0], QImage.Format_RGB888)
             img = img.scaled(576, 324)
             self.ui.DisplayLabel.setPixmap(QPixmap.fromImage(img))
-
 
             # 调整速率
             if self.isCamera:
