@@ -5,6 +5,10 @@
 yolov3_deepsort/logs/
 *_test.py
 yolov3_deepsort/output/
+GUI/.idea/
+yolov3_deepsort/model_data/.idea/
+!yolo.h5
+!yolov3-tiny.h5
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
