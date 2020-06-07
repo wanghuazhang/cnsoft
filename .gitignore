@@ -2,13 +2,7 @@
 *.png
 *.weights
 *.h5
-yolov3_deepsort/logs/
 *_test.py
-yolov3_deepsort/output/
-GUI/.idea/
-yolov3_deepsort/model_data/.idea/
-!yolo.h5
-!yolov3-tiny.h5
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -111,3 +105,7 @@ ENV/
 
 # mypy
 .mypy_cache/
+/GUI/.idea/
+/yolov3_deepsort/logs/
+/yolov3_deepsort/output/
+/yolov3_deepsort/model_data/.idea/

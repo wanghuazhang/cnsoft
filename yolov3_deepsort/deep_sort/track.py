@@ -80,6 +80,8 @@ class Track:
         self._n_init = n_init
         self._max_age = max_age
         self.label = label
+        # self.tlwh = tlwh
+        self.speed = 0
 
     def to_tlwh(self):
         """Get current position in bounding box format `(top left x, top left y,
@@ -136,12 +138,22 @@ class Track:
             The associated detection.
 
         """
+
+        # 计算速度
+        box = self.to_tlwh()
+        if box[0]:
+            dis = ((detection.tlwh[0] - box[0]) ** 2 + (detection.tlwh[1] - box[1]) ** 2) ** 0.5
+            # 计算speed还需要根据距离摄像头位置进行scale
+            self.speed = (dis / detection.intervalTime) * (1080 - box[1]) / ((1080) * 5)
+            self.speed = round(self.speed, 2)
+
         self.mean, self.covariance = kf.update(
             self.mean, self.covariance, detection.to_xyah())
         self.features.append(detection.feature)
 
         self.hits += 1
         self.time_since_update = 0
+
         if self.state == TrackState.Tentative and self.hits >= self._n_init:
             self.state = TrackState.Confirmed
 

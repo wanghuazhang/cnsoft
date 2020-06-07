@@ -83,7 +83,8 @@ class YOLO(object):
         except:
             self.yolo_model = tiny_yolo_body(Input(shape=(None,None,3)), num_anchors//2, num_classes) \
                 if is_tiny_version else yolo_body(Input(shape=(None,None,3)), num_anchors//3, num_classes)
-            self.yolo_model.load_weights(self.model_path) # make sure model, anchors and classes match
+            # self.yolo_model.load_weights(self.model_path) # make sure model, anchors and classes match
+            self.yolo_model = load_model(model_path, compile=False)
         else:
             assert self.yolo_model.layers[-1].output_shape[-1] == \
                 num_anchors/len(self.yolo_model.output) * (num_classes + 5), \
@@ -278,8 +279,9 @@ def detect_video(yolo, video_path, output_path=""):
     video_fps = vid.get(cv2.CAP_PROP_FPS)
     video_size = (int(vid.get(cv2.CAP_PROP_FRAME_WIDTH)),
                         int(vid.get(cv2.CAP_PROP_FRAME_HEIGHT)))
+    intervalTime = 1 / video_fps
     isOutput = True if output_path != "" else False
-    frame_index = 0
+    frame_index = -1
     #要保存的json信息
     track_json_result = []
     plate_json_result = []
@@ -325,13 +327,13 @@ def detect_video(yolo, video_path, output_path=""):
             print(frame_index, plate_json_dict)
             plate_json_result.append(plate_json_dict)
 
-    frame_index = 0
+    frame_index = -1
+
     while True:
         track_json_dict = {}
-        plate_json_dict = {}
         frame_index = frame_index + 1
-        if not frame_index % 5:
-            continue
+        # if not frame_index % 5:
+        #     continue
         ret, frame = vid.read()
         if ret != True:
             break
@@ -350,7 +352,7 @@ def detect_video(yolo, video_path, output_path=""):
         boxs, labels = yolo.detect_image_deepsort(image)
         features = encoder(frame, boxs)
         # score to 1.0 here).
-        detections = [Detection(bbox, 1.0, feature, lable) for bbox, feature, lable in zip(boxs, features, labels)]
+        detections = [Detection(bbox, 1.0, feature, lable, intervalTime) for bbox, feature, lable in zip(boxs, features, labels)]
 
         # Run non-maxima suppression.
         boxes = np.array([d.tlwh for d in detections])
@@ -362,7 +364,11 @@ def detect_video(yolo, video_path, output_path=""):
         tracker.predict()
         tracker.update(detections)
 
-        # Todo 在track里面记录class、score等信息，取消detection显示框
+        track_json_dict['frame_index'] = frame_index
+        track_json_dict['body'] = []
+        #计算车流量、人流量
+        personCnt = 0
+        carCnt = 0
         for track in tracker.tracks:
             if not track.is_confirmed() or track.time_since_update > 1:
                 continue
@@ -372,13 +378,48 @@ def detect_video(yolo, video_path, output_path=""):
             cv2.putText(frame, content, (int(bbox[0]), int(bbox[1])), 0, 5e-3 * 200, (0, 255, 0), 2)
 
             #保存track的json信息
-            track_json_dict['frame_index'] = frame_index
-            track_json_dict['label'] = content
-            track_json_dict['box'] = []
-            track_json_dict['box'].append(bbox[0])
-            track_json_dict['box'].append(bbox[1])
-            track_json_dict['box'].append(bbox[2])
-            track_json_dict['box'].append(bbox[3])
+            tmptrack = {}
+
+            tmptrack['trackerID'] = str(track.track_id)
+            tmptrack['class'] = (track.label.split(' ')[0])
+            tmptrack['confidence'] = (track.label.split(' ')[1])
+            tmptrack['speed'] = str(track.speed)
+            # detect_class = ['car', 'bus', 'person', 'motorbike', 'truck']
+            if tmptrack['class'] in ['car', 'bus', 'truck']:
+                carCnt += 1
+            else:
+                personCnt += 1
+            tmptrack['box'] = []
+            tmptrack['box'].append(bbox[0])
+            tmptrack['box'].append(bbox[1])
+            tmptrack['box'].append(bbox[2])
+            tmptrack['box'].append(bbox[3])
+            print(tmptrack)
+            track_json_dict['body'].append(tmptrack)
+
+        track_json_dict['personCnt'] = str(personCnt)
+        track_json_dict['carCnt'] = str(carCnt)
+
+        inference = ""
+        inference += "当前车辆数目：" + str(carCnt) + '\n'
+        if carCnt <= 5:
+            inference += "车流较少"
+        elif carCnt <= 15:
+            inference += "车流适中"
+        else:
+            inference += "车流较大"
+        inference += '\n'
+        inference += "当前行人数目：" + str(personCnt) + '\n'
+        if personCnt <= 5:
+            inference += "人流较少"
+        elif personCnt <= 15:
+            inference += "人流适中"
+        else:
+            inference += "人流较大"
+        inference += '\n'
+        print(inference)
+        track_json_dict['inference'] = inference
+
 
         #车牌检测
         # carPlate = recognize_plate(frame)
@@ -402,6 +443,7 @@ def detect_video(yolo, video_path, output_path=""):
         #             list_file.write(
         #                 str(boxs[i][0]) + ' ' + str(boxs[i][1]) + ' ' + str(boxs[i][2]) + ' ' + str(boxs[i][3]) + ' ')
         #     list_file.write('\n')
+
         if isOutput:
             track_json_result.append(track_json_dict)
             # plate_json_result.append(plate_json_dict)
@@ -417,10 +459,10 @@ def detect_video(yolo, video_path, output_path=""):
         output_track_json_file = output_folder + '/output_track_' + file_name + '.json'
         output_plate_json_file = output_folder + '/output_plate_' + file_name + '.json'
         print(output_track_json_file)
-        with open(output_track_json_file, 'w') as f:
-            json.dump(track_json_result, f)
-        with open(output_plate_json_file, 'w') as f:
-            json.dump(plate_json_result, f)
+        with open(output_track_json_file, 'w', encoding='utf-8') as f:
+            json.dump(track_json_result, f, ensure_ascii=False)
+        with open(output_plate_json_file, 'w', encoding='utf-8') as f:
+            json.dump(plate_json_result, f, ensure_ascii=False)
 
     # while True:
     #     return_value, frame = vid.read()
