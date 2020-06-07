@@ -4,8 +4,18 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="1">
+          <list size="11">
             <item index="0" class="java.lang.String" itemvalue="pyqt5" />
+            <item index="1" class="java.lang.String" itemvalue="tensorflow" />
+            <item index="2" class="java.lang.String" itemvalue="numpydoc" />
+            <item index="3" class="java.lang.String" itemvalue="toolz" />
+            <item index="4" class="java.lang.String" itemvalue="imagesize" />
+            <item index="5" class="java.lang.String" itemvalue="Keras" />
+            <item index="6" class="java.lang.String" itemvalue="torch" />
+            <item index="7" class="java.lang.String" itemvalue="numpy" />
+            <item index="8" class="java.lang.String" itemvalue="torchvision" />
+            <item index="9" class="java.lang.String" itemvalue="sympy" />
+            <item index="10" class="java.lang.String" itemvalue="Pillow" />
           </list>
         </value>
       </option>

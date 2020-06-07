@@ -4,6 +4,8 @@ import json
 from PyQt5.QtCore import QFile
 from PyQt5.QtWidgets import QFileDialog, QMessageBox
 from PyQt5.QtGui import QImage, QPixmap
+from win32api import Sleep
+
 from yolov3_deepsort.yolo_video import detectAPI
 
 class Display:
@@ -83,6 +85,7 @@ class Display:
                     self.ui.DisplayLabel.clear()
                     self.ui.Close.setEnabled(False)
                     self.ui.Open.setEnabled(True)
+                    break
                 if success is True:
                     frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
                 else:
@@ -92,7 +95,7 @@ class Display:
 
                 #Todo 在右边栏输入推理信息
 
-                # self.ui.textBrowser.setText(jsondata['inference'])
+                self.ui.textBrowser.append(jsondata['inference'])
 
                 for item in jsondata['body']:
                     bbox = item['box']
@@ -101,15 +104,16 @@ class Display:
                     cv2.putText(frame, content, (int(bbox[0]), int(bbox[1])), 0, 5e-3 * 200, (0, 255, 0), 2)
 
                 img = QImage(frame.data, frame.shape[1], frame.shape[0], QImage.Format_RGB888)
-                img = img.scaled(576, 324)
+                img = img.scaled(self.ui.DisplayLabel.width(), self.ui.DisplayLabel.height())
                 self.ui.DisplayLabel.setPixmap(QPixmap.fromImage(img))
 
-                # cv2.waitKey(40)
-                # 调整速率
-                # if self.isCamera:
-                #     cv2.waitKey(1)
-                # else:
-                #     cv2.waitKey(int(1000 / self.frameRate))
+                #cv2.waitKey(40)
+                #调整速率
+                if self.isCamera:
+                    cv2.waitKey(1)
+                else:
+                    Sleep(int(1000 / self.frameRate))
+                    #cv2.waitKey(int(1000 / self.frameRate))
 
                 # 判断关闭事件是否已触发
                 if True == self.stopEvent.is_set():

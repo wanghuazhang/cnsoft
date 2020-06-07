@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6412932-dcf2-4942-b57c-685ea215bc7c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/keras-yolo3-master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/keras-yolo3-master.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/DisplayUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/DisplayUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/DisplayUI.ui" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/DisplayUI.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/VideoDisplay.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/VideoDisplay.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo.py" afterDir="false" />
     </list>
     <list id="ca3c1a6c-ff3f-4a4e-8566-dba6fae365aa" name="Revert &quot;提供一个目标检测和跟踪的API：detectAPI(video_path)，传入视频路径参数 同时，output/ 提供了目前检测的demo，txt文件是对应检测的box，mp4是检测视频&quot;" comment="Revert &quot;提供一个目标检测和跟踪的API：detectAPI(video_path)，传入视频路径参数 同时，output/ 提供了目前检测的demo，txt文件是对应检测的box，mp4是检测视频&quot;&#10;&#10;This reverts commit 3f9f24a6" />
     <list id="3fd90dcb-d5d5-4aed-85d7-a722d2ff9212" name="提供一个目标检测和跟踪的API：detectAPI(video_path)，传入视频路径参数 同时，output/ 提供了目前检测的demo，txt文件是对应检测的box，mp4是检测视频" comment="" />
@@ -254,6 +254,7 @@
       <workItem from="1590053201490" duration="1707000" />
       <workItem from="1590112714114" duration="5152000" />
       <workItem from="1590250519467" duration="3026000" />
+      <workItem from="1591544077738" duration="702000" />
     </task>
     <task id="LOCAL-00001" summary="添加车道线检测之前">
       <created>1588775120029</created>
@@ -398,7 +399,7 @@
     <SUITE FILE_PATH="coverage/keras_yolo3_master$kmeans.coverage" NAME="kmeans Coverage Results" MODIFIED="1581840837719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/yolov3_keras$demo.coverage" NAME="demo Coverage Results" MODIFIED="1590140270821" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/yolov3_keras$voc2yolo3.coverage" NAME="voc2yolo3 Coverage Results" MODIFIED="1587572590772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/VOCdevkit/VOC2007" />
-    <SUITE FILE_PATH="coverage/cnsoft$demo.coverage" NAME="demo Coverage Results" MODIFIED="1590253311708" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cnsoft$demo.coverage" NAME="demo Coverage Results" MODIFIED="1591544778491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/keras_yolo3_master$voc_annotation.coverage" NAME="voc_annotation Coverage Results" MODIFIED="1581579884574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/yolov3_keras$plateRecognition.coverage" NAME="plateRecognition Coverage Results" MODIFIED="1590124286530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PlateRecognition" />
     <SUITE FILE_PATH="coverage/yolov3_keras$yolo_video.coverage" NAME="yolo_video Coverage Results" MODIFIED="1590112798469" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
