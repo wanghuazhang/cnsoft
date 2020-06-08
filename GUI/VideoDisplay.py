@@ -65,9 +65,9 @@ class Display:
         # 创建新线程显示视频信息
         # self.th = threading.Thread(target=self.Display)
         # self.th.start()
-        self.th = fun2Thread(self)
+        self.th = MyDisplay(self)
         self.th.start()
-        self.th.finish.connect(self.Display)
+        self.th.changeText.connect(self.Display)
 
     def Close(self):
         # 关闭事件设为触发，关闭视频播放
@@ -77,12 +77,12 @@ class Display:
         self.ui.textBrowser.append(text)
 
 
-class fun2Thread(QtCore.QThread):
+class MyDisplay(QtCore.QThread):
     # 信号
-    finish = QtCore.pyqtSignal(str)
+    changeText = QtCore.pyqtSignal(str)
 
     def __init__(self, th):
-        super(fun2Thread, self).__init__()
+        super(MyDisplay, self).__init__()
         self.th = th
 
     def run(self):
@@ -115,8 +115,8 @@ class fun2Thread(QtCore.QThread):
                 # self.ui.textBrowser.append("开始识别\n" + '第' + str(frame_index) + '帧')
                 # self.ui.textBrowser.append(jsondata['inference'])
                 # # 发送信号
-                self.finish.emit("开始识别\n" + '第' + str(frame_index) + '帧')
-                self.finish.emit(jsondata['inference'])
+                self.changeText.emit("开始识别\n" + '第' + str(frame_index) + '帧')
+                self.changeText.emit(jsondata['inference'])
                 self.th.cursor = self.th.ui.textBrowser.textCursor()
                 self.th.ui.textBrowser.moveCursor(self.th.cursor.End)
 
