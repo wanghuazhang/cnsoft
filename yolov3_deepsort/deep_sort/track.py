@@ -80,7 +80,6 @@ class Track:
         self._n_init = n_init
         self._max_age = max_age
         self.label = label
-        # self.tlwh = tlwh
         self.speed = 0
 
     def to_tlwh(self):

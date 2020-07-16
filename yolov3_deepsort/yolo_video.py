@@ -18,7 +18,7 @@ def detect_img(yolo):
 FLAGS = None
 
 
-def detectAPI(input_path, output_path=''):
+def detectAPI(input_path='', output_path='', th=None):
     # class YOLO defines the default value, so suppress any default here
     parser = argparse.ArgumentParser(argument_default=argparse.SUPPRESS)
     '''
@@ -77,10 +77,14 @@ def detectAPI(input_path, output_path=''):
             print(" Ignoring remaining command line arguments: " + FLAGS.input + "," + FLAGS.output)
         detect_img(YOLO(**vars(FLAGS)))
     elif "input" in FLAGS:
-        detect_video(YOLO(**vars(FLAGS)), FLAGS.input, FLAGS.output)
+        if input_path != '':
+            detect_video(YOLO(**vars(FLAGS)), FLAGS.input, FLAGS.output)
+        else:
+            detect_camera(YOLO(**vars(FLAGS)), th)
     else:
         print("Must specify at least video_input_path.  See usage with --help.")
 
 if __name__ == '__main__':
-    video_path = 'yolov3_deepsort/img/video-02.mp4'
-    detectAPI(video_path)
+    # video_path = 'yolov3_deepsort/img/video-02.mp4'
+    # detectAPI(video_path)
+    detectAPI()
