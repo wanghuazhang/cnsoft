@@ -1,3 +1,5 @@
+import os
+
 import cv2
 import threading
 import json
@@ -46,12 +48,17 @@ class Display:
             self.fileName, self.fileType = QFileDialog.getOpenFileName(self.mainWnd, 'Choose file', '', '*.*')
             if self.fileName:
                 # input_path = 'yolov3_deepsort/img/video-02.mp4'
-                print("开始目标检测：")
                 output_path = 'yolov3_deepsort/output'
-                # detectAPI(self.fileName, output_path)
-                print("目标检测完毕！")
-                # self.fileName='yolov3_deepsort/output/output_video-02.mp4'
                 filename = (self.fileName.split('/')[-1]).split('.')[0]
+                output_folder = output_path + '/output_' + filename
+                print("开始目标检测：")
+                if not os.path.exists(output_folder):  # 判断是否是之前检测过的视频
+                    detectAPI(self.fileName, output_path)
+                else:
+                    print("用户选择视频已经检测")  # 如果文件夹已经存在，则表示用户打开已经检测过的视频，直接返回
+
+                print("目标检测完毕！")
+
                 #记录输出的track、plate对应json的文件路径
                 self.output_track_path = 'yolov3_deepsort/output/' + 'output_' + filename + '/' + 'output_track_' + filename + '.json'
                 self.output_plate_path = 'yolov3_deepsort/output/' + 'output_' + filename + '/' + 'output_plate_' + filename + '.json'

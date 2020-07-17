@@ -7,12 +7,6 @@ from GUI.VideoDisplay import Display
 from yolov3_deepsort.yolo_video import detectAPI
 
 if __name__ == '__main__':
-    #API demo
-    # input_path = 'yolov3_deepsort/img/video-02.mp4'
-    # output_path = 'yolov3_deepsort/output'
-    # detectAPI(input_path, output_path)
-    # detectAPI(input_path)
-
     app = QApplication(sys.argv)
     mainWnd = QMainWindow()
     ui = DisplayUI.Ui_MainWindow()

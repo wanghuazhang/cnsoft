@@ -283,6 +283,7 @@ def detect_video(yolo, video_path, output_path=""):
                         int(vid.get(cv2.CAP_PROP_FRAME_HEIGHT)))
     intervalTime = 1 / video_fps
     isOutput = True if output_path != "" else False
+
     frame_index = -1
     #要保存的json信息
     track_json_result = []
